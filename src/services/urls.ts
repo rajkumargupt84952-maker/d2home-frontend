@@ -14,4 +14,6 @@ export const endpoints = {
   createOrder: "create-order",
   getMyOrders: "get-my-orders",
   getOrderById: "get-order-by-id",
+  changeOrderStatus:"change-order-status",
+  getAllOrders:"get-all-orders"
 }
