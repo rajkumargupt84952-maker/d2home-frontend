@@ -3,6 +3,7 @@ import loginImage from "../../../assets/img/baner-1.png";
 import { postRequest } from "../../../services/handle-apis";
 import { endpoints } from "../../../services/urls";
 import type { LoginResponse } from "../../../interfaces/users";
+import RegisterModal from "./Register";
 
 interface LoginModalProps {
     show: boolean;
@@ -14,6 +15,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ show, setShow }) => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    const [showRegister, setShowRegister] = useState(false);
 
     if (!show) return null;
 
@@ -46,10 +48,14 @@ const LoginModal: React.FC<LoginModalProps> = ({ show, setShow }) => {
             setLoading(false);
         }
     };
+    const handleRegisterModal = () => {
+        setShow(false);
+        setShowRegister(true);
+    }
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-
+        <RegisterModal show={showRegister} setShow={setShowRegister} />
             {/* Modal Container */}
             <div className="relative w-full max-w-5xl border border-green-300/40 bg-white dark:bg-[rgb(var(--sidebar-bg))] shadow-xl rounded-xl overflow-hidden flex flex-col md:flex-row">
 
@@ -144,7 +150,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ show, setShow }) => {
                     <p className="mt-4 text-center text-sm text-gray-500">
                         Don't have an account?{" "}
                         <button
-                            onClick={() => setShow(false)}
+                            onClick={handleRegisterModal}
                             className="text-green-600 font-medium hover:underline"
                         >
                             Sign up

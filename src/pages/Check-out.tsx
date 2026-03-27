@@ -4,7 +4,7 @@ import { use, useEffect, useState } from "react";
 import AddressModal from "../components/Address";
 import { useCartContext } from "../contexts/cartContext";
 import type { CartItem } from "../interfaces/cart";
-import { endpoints } from "../services/urls";
+import { BASE_URL, endpoints } from "../services/urls";
 import { postRequest } from "../services/handle-apis";
 import type { Address, AddressResponse } from "../interfaces/address";
 import { toast } from "react-toastify";
@@ -161,7 +161,7 @@ const Checkout = () => {
 
                   <div className="w-full sm:w-32 h-40 sm:h-32 bg-gray-50 dark:bg-gray-800/50 rounded-xl overflow-hidden shrink-0">
                     <img
-                      src="https://via.placeholder.com/150"
+                      src={`${BASE_URL.replace('api/', '')}uploads/${item.productImage?.[0] ?? ""}`}
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = "https://media.gettyimages.com/id/185071735/photo/red-apple-with-droplet.jpg?s=612x612&w=gi&k=20&c=0tybCsUgMrmbLja8UcKPrzm9XwLIAmxm8InbcmOYfhQ=";
                       }}

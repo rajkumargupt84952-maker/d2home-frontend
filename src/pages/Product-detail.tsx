@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
   FaArrowLeft,
   FaShoppingCart,
-  FaStar,
   FaHeart,
   FaMinus,
   FaPlus,
@@ -13,7 +12,7 @@ import {
   FaUndoAlt,
 } from "react-icons/fa";
 import { getRequest } from "../services/handle-apis";
-import { endpoints } from "../services/urls";
+import { BASE_URL, endpoints } from "../services/urls";
 import type { productkeys } from "../types/homeTypes";
 import { useCartContext } from "../contexts/cartContext";
 import LoginModal from "../Module/Auth/Pages/Login";
@@ -158,7 +157,7 @@ const ProductDetail = () => {
               </button>
               <div className="h-72 sm:h-96 flex items-center justify-center p-6">
                 <img
-                  src={images[selectedImage] ?? ""}
+                  src={`${BASE_URL.replace('api/', '')}uploads/${images[selectedImage] ?? ""}`}
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "https://media.gettyimages.com/id/185071735/photo/red-apple-with-droplet.jpg?s=612x612&w=gi&k=20&c=0tybCsUgMrmbLja8UcKPrzm9XwLIAmxm8InbcmOYfhQ=";
                   }}

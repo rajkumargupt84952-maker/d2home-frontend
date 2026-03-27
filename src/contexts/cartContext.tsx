@@ -55,7 +55,7 @@ export const CartProvider = ({ children }: { children: any }) => {
         getCartData()
       }
       toast.dismiss();
-      toast.success("Product added to cart");
+      toast.success("Cart updtated successfully");
     } catch (err) {
       console.error("Error adding to cart:", err);
       toast.error("Failed to add product to cart");

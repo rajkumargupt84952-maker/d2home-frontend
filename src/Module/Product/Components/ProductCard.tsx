@@ -1,4 +1,5 @@
 import { useCartContext } from "../../../contexts/cartContext";
+import { BASE_URL } from "../../../services/urls";
 import type { productkeys } from "../../../types/homeTypes";
 import { useNavigate } from "react-router-dom";
 
@@ -22,10 +23,7 @@ const ProductCard = ({ product }: { product: productkeys }) => {
                 {/* Image */}
                 <div className="h-36 flex justify-center p-2">
                     <img
-                        src={
-                            product.productImage?.[0]
-
-                        }
+                        src={`${BASE_URL.replace('api/', '')}uploads/${product.productImage?.[0]}`}
                         onError={(e) => {
                             (e.target as HTMLImageElement).src = "https://media.gettyimages.com/id/185071735/photo/red-apple-with-droplet.jpg?s=612x612&w=gi&k=20&c=0tybCsUgMrmbLja8UcKPrzm9XwLIAmxm8InbcmOYfhQ=";
                         }}
