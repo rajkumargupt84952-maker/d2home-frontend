@@ -8,7 +8,7 @@ import Checkout from "./pages/Check-out";
 import Orders from "./pages/Orders";
 import OrderDetails from "./pages/Orders-detail";
 import { CartProvider } from "./contexts/cartContext";
-  import { ToastContainer, toast } from 'react-toastify';
+  import { ToastContainer } from 'react-toastify';
 import FruitVegetables from "./pages/Fruit-vegetables";
 
 function App() {

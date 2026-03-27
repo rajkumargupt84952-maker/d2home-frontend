@@ -1,5 +1,5 @@
-export const BASE_URL = "http://localhost:6500/api/"; // change this
-// export const BASE_URL = "http://srv1291603.hstgr.cloud:6500/api/"; // change this
+// export const BASE_URL = "http://localhost:6500/api/"; // change this
+export const BASE_URL = "http://srv1291603.hstgr.cloud:6500/api/"; // change this
 export const endpoints = {
   getAllCategories: "get-all-categories",
   getAllProducts: "get-all-products", 

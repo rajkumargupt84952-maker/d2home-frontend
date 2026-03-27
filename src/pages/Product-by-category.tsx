@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
-import { useNavigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { getRequest } from "../services/handle-apis";
 import { endpoints } from "../services/urls";
 import type {
@@ -10,12 +10,9 @@ import type {
 import ProductCarousel from "../components/ProductCarousel";
 
 const ProductByCategory = () => {
-  const { id } = useParams(); // 👈 get id from url
-  const navigate = useNavigate();
+  const { id } = useParams(); 
   const scrollRef = useRef<HTMLDivElement>(null);
   const [allProducts, setAllProducts] = useState<productkeys[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
 
   // =========================
   // Scroll Functions
@@ -41,8 +38,6 @@ const ProductByCategory = () => {
 
   const fetchProductsByCategory = async (categoryId: string) => {
     try {
-      setLoading(true);
-      setError(null);
 
       const res = await getRequest<productRes>(
         `${endpoints.getProductsByCategoryId}/?id=${categoryId}`
@@ -51,10 +46,7 @@ const ProductByCategory = () => {
       setAllProducts(res.data);
     } catch (err) {
       console.error("Error fetching products:", err);
-      setError("Failed to load products");
-    } finally {
-      setLoading(false);
-    }
+    } 
   };
 
   return (

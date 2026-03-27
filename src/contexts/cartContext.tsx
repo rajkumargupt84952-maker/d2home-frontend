@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { getRequest, postRequest } from "../services/handle-apis";
+import  { createContext, useContext, useEffect, useState } from "react";
+import {  postRequest } from "../services/handle-apis";
 import { endpoints } from "../services/urls";
 import type { CartItem, CartResponse } from "../interfaces/cart";
 import { toast } from "react-toastify";

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { FaTrash, FaMinus, FaPlus, FaArrowLeft, FaPlusCircle } from "react-icons/fa";
-import { use, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import AddressModal from "../components/Address";
 import { useCartContext } from "../contexts/cartContext";
 import type { CartItem } from "../interfaces/cart";
